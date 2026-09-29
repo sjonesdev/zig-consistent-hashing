@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Debug current Zig test file",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "program": "$ZED_WORKTREE_ROOT/.zed/zig-test",
+    "build": {
+      "command": "zig",
+      "args": [
+        "test",
+        "$ZED_FILE",
+        "--test-no-exec",
+        "-femit-bin=$ZED_WORKTREE_ROOT/.zed/zig-test"
+      ],
+      "cwd": "$ZED_WORKTREE_ROOT"
+    }
+  },
+  {
+    "label": "Debug selected Zig test",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "program": "$ZED_WORKTREE_ROOT/.zed/zig-test",
+    "build": {
+      "command": "zig",
+      "args": [
+        "test",
+        "$ZED_FILE",
+        "--test-no-exec",
+        "-femit-bin=$ZED_WORKTREE_ROOT/.zed/zig-test",
+        "--test-filter",
+        "$ZED_SELECTED_TEXT"
+      ],
+      "cwd": "$ZED_WORKTREE_ROOT"
+    }
+  }
+]
